@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos JS</title>
+</head>
+<body>
+
+    <script>
+
+        //antes do ES6
+
+        const valores = [1, 2, 3, 4, 5]
+        console.log (Math.min.apply(Math, valores)) // -> 1
+        console.log(Math.max.apply(Math, valores)) // -> 5
+        
+        //com ES6 / ES6 2016 ficou mais fácil, aplicando o operador spread 
+        
+        const valores = [1, 2, 3, 4, 5]
+        console.log(Math.min(...valores)) // -> 1
+        console.log(Math.max(...valores)) // -> 5
+
+
+    </script>
+    
+</body>
+</html>
