@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exemplo switch em JS</title>
+    </head>
+
+    <body>
+        <p>Clique no botão para exibir a caixa de diálogo e a saída da função JS.</p>
+        <button onclick="functionBebidaFavorita()">Clique aqui</button>
+        <p id="demo"></p>
+        <script>
+            function functionBebidaFavorita() {
+                var texto;
+                var bebidaFav = prompt("Qual a sua bebida favorita?");
+                switch (bebidaFav) {
+                    case "Cerveja Artesanal":
+                        texto = "Excelente! Cerveja artesanal é bom para acabar com o estresse.";
+                        break;
+                    case "Suco":
+                        texto = "Suco também é a minha favorita!";
+                        break;
+                    case "Refrigerante":
+                        texto = "Sério? Você tem certeza que refrigerante é sua bebida favorita?";
+                        break;
+                    default:
+                        texto = "Eu nunca ouvi falar disso...";
+                        break;
+                }
+                document.getElementById("demo").innerHTML = texto;
+            }
+        </script>
+</body>
+</html>

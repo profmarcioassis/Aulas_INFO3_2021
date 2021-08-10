@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Primeira aula de Javascript</title>
+        <!--incorporando Javascript externo-->
+        <script src="js/scripts.js"></script>
+    </head>
+
+    <body>
+
+        <p id="demo">Texto do parágrafo</p>
+        <button onclick="alterarTexto()">Alterar texto</button>
+        <button onclick="confirmarExclusao(1, 'Márcio')">Excluir</button>
+
+        <script>
+
+            function confirmarExclusao(id, nome) {
+                if (window.confirm("Tem certeza que deseja excluir o registro: \n" + id + ", " + nome + "?")) {
+                    //chamar o script de exclusão
+                    alert("Registro excluído com sucesso")
+                }
+            }
+
+            //escopo de variáveis
+            var varX = 10 //variável global
+            function alterarValorLocal() {
+                let varX = 20 //variável local no bloco. Esta variável é outra
+            }
+
+            alterarValorLocal()
+            //alert(varX)
+
+            //document.write("<h2>Bom dia</h2>");
+
+            const nome = "Márcio Assis"
+            //let a = parseInt(window.prompt("Digite um valor: "))
+            //let b = parseInt(window.prompt("Digite um valor: "))
+
+            let i = 0
+            while (i <= 10) {
+                console.log(i)
+                i++
+            }
+
+            for (let index = 0; index < 20; index++) {
+                console.log(index);
+            }
+
+            function novoTexto() {
+                document.getElementById("demo").innerHTML = "Novo texto"
+            }
+
+            function somarValores(a, b) {
+                return a + b
+            }
+
+            function subtrairValores(a, b) {
+                return a - b;
+            }
+
+            //console.log(somarValores(a,b))
+
+            let x = 10
+            let y = "10"
+            if (x == y) {
+                console.log("true");
+            }
+            else {
+                console.log("false");
+            }
+
+
+
+        </script>
+    </body>
+
+</html>
