@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Primeira aula de Javascript</title>
+        <!--incorporando Javascript externo-->
+        <script src="js/scripts.js"></script>
+    </head>
+
+    <body>
+
+        <button onclick="alert('Javascript inline')">Clique aqui</button>
+        <p id="demo">Texto do parágrafo</p>
+        <button onclick="novoTexto()">Novo texto</button>
+        <button onclick="alterarTexto()">Alterar texto</button>
+
+        <script>
+            function novoTexto() {
+               document.getElementById("demo").innerHTML = "Novo texto"
+            }
+
+        </script>
+    </body>
+
+</html>

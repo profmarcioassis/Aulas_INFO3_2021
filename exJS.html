@@ -1,29 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplos JS</title>
-</head>
-<body>
 
-    <script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exemplos JS</title>
+    </head>
 
-        //antes do ES6
+    <body>
 
-        const valores = [1, 2, 3, 4, 5]
-        console.log (Math.min.apply(Math, valores)) // -> 1
-        console.log(Math.max.apply(Math, valores)) // -> 5
-        
-        //com ES6 / ES6 2016 ficou mais fácil, aplicando o operador spread 
-        
-        const valores = [1, 2, 3, 4, 5]
-        console.log(Math.min(...valores)) // -> 1
-        console.log(Math.max(...valores)) // -> 5
+        <!-- Como alterar o texto de um parágrafo com Javascript? -->
+        <button onclick="alterarParagrafo()">Clique aqui</button>
+        <p id="demo"></p>
+
+        <script>
+            function alterarParagrafo(){
+                document.getElementById("demo").innerHTML = "Texto do parágrafo"
+            }
+            
+            
 
 
-    </script>
-    
-</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //antes do ES6
+            const valores = [1, 2, 3, 4, 5]
+            console.log(Math.min.apply(Math, valores)) // -> 1
+            console.log(Math.max.apply(Math, valores)) // -> 5
+
+            //com ES6 / ES6 2016 ficou mais fácil, aplicando o operador spread 
+
+            const valores2 = [1, 2, 3, 4, 5]
+            console.log(Math.min(...valores2)) // -> 1
+            console.log(Math.max(...valores2)) // -> 5
+
+            function notifica() {
+                alert("Atenção: coloque nome siginificativos");
+            }
+
+            function notificarUsuario() {
+                alert("Atenção: coloque nome siginificativos");
+            }
+
+            function operacaoMatematica(num1, num2, operacao) {
+                if (operacao === "+") {
+                    console.log(num1 + num2)
+                } else {
+                    console.log(num1 - num2)
+                }
+            }
+
+            function somarValores(num1, num2) {
+                console.log(num1 + num2)
+            }
+
+            function subtrairValores(num1, num2) {
+                console.log(num1 - num2)
+            }
+
+            console.log(operacaoMatematica(5, 3, "+"))
+
+            function buscarUsuarioAluno(id, nome, data) {
+                //busca aluno
+            }
+
+            function buscarUsuarioProfessor(id, nome, data) {
+                //Busca professor
+            }
+
+            const valor = "100"
+
+            if (valor === 100) {
+                console.log(valor)
+                //não será executado
+            }
+
+            if (valor === "100") {
+                console.log(valor)
+                //será executado
+            }
+
+
+        </script>
+
+
+    </body>
+
 </html>
