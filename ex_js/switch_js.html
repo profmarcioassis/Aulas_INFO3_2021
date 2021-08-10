@@ -14,24 +14,28 @@
         <p id="demo"></p>
         <script>
             function functionBebidaFavorita() {
-                var texto;
-                var bebidaFav = prompt("Qual a sua bebida favorita?");
-                switch (bebidaFav) {
-                    case "Cerveja Artesanal":
-                        texto = "Excelente! Cerveja artesanal é bom para acabar com o estresse.";
+                let resposta = "";
+                let bebidaFavorita = prompt("Qual a sua bebida favorita?");
+                switch (bebidaFavorita) {
+                    case "Água":
+                        texto = "Melhor bebida do mundo";
                         break;
-                    case "Suco":
-                        texto = "Suco também é a minha favorita!";
+                    case "Suco natural":
+                        texto = "Você é saudável";
+                        break;
+                    case "Suco de pacotinho":
+                        texto = "Tang é o melhor";
                         break;
                     case "Refrigerante":
-                        texto = "Sério? Você tem certeza que refrigerante é sua bebida favorita?";
+                        texto = "bebida de criança";
                         break;
                     default:
-                        texto = "Eu nunca ouvi falar disso...";
+                        texto = "Você precisa se hidratar";
                         break;
                 }
-                document.getElementById("demo").innerHTML = texto;
+                document.getElementById("demo").innerHTML = resposta;
             }
         </script>
-</body>
+    </body>
+
 </html>
