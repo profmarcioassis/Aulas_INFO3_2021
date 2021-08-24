@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página 2</title>
+    </head>
+
+    <body style="background-color: #b5bdeb; margin: 20px 20px 100px 60px;">
+
+        <a href="index.html">Home</a> |
+        <a href="introducao.html">Introdução</a> |
+        <a href="tagsFormatacao.html">Tags Formatação</a> |
+        <a href="listas.html">Listas</a> |
+        <a href="css.html">CSS</a>
+
+        <h2 style="color: purple;">Listas em HTML</h2>
+        <p style="font-size: 15px; font-family: 'Courier New', Courier, monospace;"><b>Listas ordenadas/numeradas:</b>
+            permite a criação de listas ordenadas/numeradas/classificadas</p>
+        <p>Utilitiza-se os elementos ol e li</p>
+        <p>O atributo <b>type</b> define o tipo da lista</p>
+        <p>O atributo <b>start</b> define o valor inicial da lista</p>
+
+        <p style="font-family: Arial, Helvetica, sans-serif;"><b>Listas não ordenadas:</b> permite a criação de listas
+            com marcadores, ou seja, não numeradas</p>
+        <p>Utiliza-se os elementos ul e li</p>
+        <p>a propriedade list-style-type define o formato da lista e é inserida dentro do atributo style</p>
+        <h3>Exemplos</h3>
+        <h4>Lista das principais bebidas</h4>
+        <ol type="1" start="1">
+            <li>Café
+                <ul style="list-style-type: disc;">
+                    <li>Importante para manter acordado</li>
+                    <li>Novinho e quente é melhor</li>
+                </ul>
+            </li>
+            <li>Água
+                <ul style="list-style-type: square;">
+                    <li>Necessário para sobrevivência</li>
+                    <li>Tem natural e com gás</li>
+                    <li>Maior parte da água do planeta não é potável</li>
+                </ul>
+            </li>
+            <li>Chá</li>
+            <li>Refri</li>
+        </ol>
+
+        <ul style="list-style-type: disc;">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Chá</li>
+            <li>Refri
+                <ol type="a">
+                    <li>Mata mas é bom</li>
+                    <li>Tem muito açucar</li>
+                </ol>
+            </li>
+        </ul>
+    </body>
+
+</html>

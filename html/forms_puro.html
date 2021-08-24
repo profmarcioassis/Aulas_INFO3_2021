@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulários HTML</title>
+
+        <style>
+            input[type=text],
+            input[type=password] {
+                padding: 10px;
+                border: 1px solid gray;
+                border-radius: 10px 5%;
+            }
+        </style>
+    </head>
+
+    <body style="margin: 30px;">
+        <h2>Formulários HTML</h2>
+        <ul>
+            <li>A tag &lt;form&gt;...&lt;/form&gt; define a estrutura principal do formulário</li>
+            <li>O atributo action define qual a ação ao submeter o formulário</li>
+            <li>O atributo method define o método de envio do formulário</li>
+            <li>O atributo required define que um campo é obrigatório</li>
+            <li>O atributo autofocus seta o foco para o campo ao carregar a página</li>
+            <li>O atributo placeholder define um texto de orientação na input</li>
+        </ul>
+        <form action="" method="post">
+            <fieldset>
+                <legend>Cadastro de usuário</legend>
+                Id
+                <input type="text" name="intId" value="0001" readonly>
+                <br><br>
+                <label for="txtNome">Nome</label>
+                <input type="text" name="txtNome" required autofocus placeholder="Informe o nome completo"><sup><span
+                        style="color: red">*</span></sup><br><br>
+                Username
+                <input type="text" name="txtUser" required placeholder="Informe o nome do usuário"><sup><span
+                        style="color: red">*</span></sup><br><br>
+                Senha
+                <input type="password" name="txtPass" required placeholder="Informe a senha" id="txtPass"><sup><span
+                        style="color: red">*</span></sup>
+                <br><br>
+                Confirmar senha
+                <input type="password" name="txtPass" required placeholder="Informe a senha" id="txtPass"><sup><span
+                        style="color: red">*</span></sup>
+                <br><br>
+                E-mail
+                <input type="email" name="txtEmail" id="txtEmail" required placeholder="Informe um e-mail válido">
+                <br><br>
+                Data de nascimento
+                <input type="date" name="dataNas" id="dataNas" required>
+                <br><br>
+                Sexo
+                <input type="radio" name="Genero" value="M">Masculino
+                <input type="radio" name="Genero" value="F">Feminino
+                <input type="radio" name="Genero" value="O">Outro
+                <br><br>
+
+                Estado civil
+                <select name="estCivil" size="1">
+                    <option value="C">Casado(a)</option>
+                    <option value="S" selected>Solteiro(a)</option>
+                    <option value="D">Divorciado(a)</option>
+                    <option value="V">Viúvo(a)</option>
+                </select>
+
+                <br><br>
+                Assuntos de interesse <br>
+                <input type="checkbox" name="Interesse" value="TI" checked>Tecnologia
+                <input type="checkbox" name="Interesse" value="ES">Esportes
+                <input type="checkbox" name="Interesse" value="ED">Educação
+                <input type="checkbox" name="Interesse" value="GA" checked>Games
+                <input type="checkbox" name="Interesse" value="CL">Culinária
+                <br><br>
+
+                Observações <br>
+                <textarea name="txtObs" id="" cols="50" rows="10">
+                </textarea>
+
+                <br><br>
+                <input type="submit" value="Salvar" class="btn btn-success">
+                <input type="reset" value="Cancelar" class="btn btn-warning">
+            </fieldset>
+        </form>
+
+    </body>
+
+</html>
