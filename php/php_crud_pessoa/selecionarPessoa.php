@@ -57,6 +57,8 @@ include_once("conexao.php");
             <?php
             while ($exibir = $dadosPessoa->fetch_assoc()) {
             ?>
+
+
                 <tr>
                     <td><?php echo $exibir["idPessoa"] ?></td>
                     <td><?php echo $exibir["nomePessoa"] ?> </td>
@@ -69,7 +71,7 @@ include_once("conexao.php");
                     $estCivil = $dadosEstCivil->fetch_assoc();
                     ?>
                     <td><?php echo $estCivil["estadoCivil"] ?> </td>
-                    <td><?php echo $exibir["Sexo"] ?> </td>
+                    <td><?php echo $exibir["Sexo"] ?></td>
                     <td><a href="#">Editar</a></td>
 
                     <td>
@@ -77,14 +79,54 @@ include_once("conexao.php");
                         '<?php echo $exibir["idPessoa"] ?>',
                         '<?php echo $exibir["nomePessoa"] ?>',
                         '<?php echo $exibir["sobrenomePessoa"] ?>')">
-                        Excluir
-                    </a>
+                            Excluir
+                        </a>
                     </td>
                 </tr>
             <?php
             }
+
+
+
+
             ?>
         </table>
+    <?php
+    }
+
+
+
+
+    //****************************************************** */
+
+    //comando sql para buscar os estados civis na tabela
+    $sqlEstCivil = "SELECT * FROM tbestcivil order by estadoCivil";
+    //executa o comando sql
+    $dadosEstCivil = $conn->query($sqlEstCivil);
+
+    while ($estCivil = $dadosEstCivil->fetch_assoc()) {
+        //cria um objeto com cada linha da tabela 
+        $objEstCivil[] = (object) $estCivil;
+    }
+    //print_r($objEstCivil);
+
+    for ($i = 0; $i < 3; $i++) {
+
+
+    ?>
+        <select name="" id="">
+            <?php
+            //percorre o objeto (array)
+            foreach ($objEstCivil as $key => $val) {
+                //a seguir preenche o option com os dados do objeto (id e nome do estado civil)
+            ?>
+                <option value="<?php print($objEstCivil[$key]->idEstCivil) ?>"><?php print($objEstCivil[$key]->estadoCivil) ?></option>
+            <?php
+            }
+
+            ?>
+
+        </select>
     <?php
     }
 
@@ -93,12 +135,14 @@ include_once("conexao.php");
 
 
 
+
+
 </body>
 
 <script>
-    function confirmarExclusao(id, nome, sobrenome){
+    function confirmarExclusao(id, nome, sobrenome) {
         if (window.confirm("Deseja realmente excluir o registro: \n" + id + " - " + nome + " " + sobrenome)) {
-           window.location = "excluirPessoa.php?idPessoa=" + id; 
+            window.location = "excluirPessoa.php?idPessoa=" + id;
         }
     }
 </script>
