@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Elementos flutuantes</title>
+        <style>
+            .conteudo {
+                border: 1px solid red;
+                background-color: blue;
+                color: white;
+                width: 200px;
+                height: 200px;
+                float: left;
+            }
+
+            p {
+                clear: left;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="conteudo">Conteúdo 1</div>
+        <div class="conteudo">Conteúdo 2</div>
+        <div class="conteudo" style="clear: left;">Conteúdo 3</div>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias ab, aliquid illo corporis animi suscipit.
+            Culpa totam pariatur debitis? Nulla et velit a, perferendis nihil obcaecati iste minima maiores corrupti!
+        </p>
+    </body>
+
+</html>

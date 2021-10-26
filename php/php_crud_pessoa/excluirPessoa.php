@@ -20,7 +20,7 @@ if (isset($_GET["idPessoa"])) {
     ?>
         <script>
             alert("Erro ao excluir o registro.");
-            window.location = "selecionarPessoa.php";
+            window.history.back();
         </script>
 <?php
 

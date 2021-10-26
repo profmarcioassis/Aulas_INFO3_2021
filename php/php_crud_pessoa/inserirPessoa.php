@@ -20,7 +20,7 @@ if ($conn->query($sql) === TRUE) {
     ?>
     <script>
         alert("Registro salvo com sucesso!");
-        //window.location = "cadPessoa.php";
+        window.location = "selecionarPessoa.php";
     </script>
     
     <?php
