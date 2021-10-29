@@ -25,6 +25,31 @@
 
     </form>
 
+    <script>
+
+
+
+        //sem ponto e vírgula
+        let nome = 'Márcio Assis'
+        console.log(nome)
+
+
+
+
+        //com ponto e vírgula
+        let nome = 'Márcio Assis';
+        console.log(nome);
+
+
+
+
+
+        var variaveljs = 'Eu sou uma variável JavaScript.';
+    </script>
+    <?php
+    $variavelphp = "<script>document.write(variaveljs)</script>";
+    echo $variavelphp;
+    ?>
 
 </body>
 

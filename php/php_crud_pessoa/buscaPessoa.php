@@ -2,22 +2,30 @@
 include_once("conexao.php");
 
 $pesquisa = $_POST["pesquisa"];
-
+$estCivil = $_POST["estCivil"];
 //comando sql
-$sql = "SELECT * 
+if ($estCivil == 0) {
+    $sql = "SELECT * 
     FROM tbpessoa
     where nomePessoa like '%$pesquisa%' 
-    or sobrenomePessoa like '%$pesquisa%'  
+    or sobrenomePessoa like '%$pesquisa%' 
     order by nomePessoa";
-
-    //echo $sql;
+} else {
+    $sql = "SELECT * 
+    FROM tbpessoa
+    where (nomePessoa like '%$pesquisa%' 
+    or sobrenomePessoa like '%$pesquisa%') 
+    and idEstCivil = $estCivil 
+    order by nomePessoa";
+}
+//echo $sql;
 //executar o comando
 $dadosPessoa = $conn->query($sql);
 
 //se número de registro retornados for maior que 0
 if ($dadosPessoa->num_rows > 0) {
 ?>
-    <table class="table table-striped">
+    <table class="table table-bordered table-striped">
         <tr>
             <th>Id</th>
             <th>Nome</th>
@@ -60,5 +68,8 @@ if ($dadosPessoa->num_rows > 0) {
         ?>
     </table>
 <?php
+}
+else{
+    echo "<h4>Nenhum registro retornado!</h4"; 
 }
 ?>
