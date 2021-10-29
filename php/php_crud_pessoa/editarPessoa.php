@@ -61,7 +61,9 @@
             $pessoa = $consulta->fetch_assoc(); 
         }
     ?>
-       
+    
+
+           
     <form action="editarPessoa.php?idPessoa=<?php echo $_GET['idPessoa']?>" method="post">
         <div class="form-group row">
             <label class="col-sm-2 font-weight-bold col-form-label text-right" for="txtNome">Nome</label>

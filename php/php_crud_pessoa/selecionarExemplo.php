@@ -17,19 +17,17 @@ include_once("conexao.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-      <script>
+    <script>
         $(document).ready(function() {
-            $("#form-pesquisa").submit(function(evento) {
+            $("#ddlPessoa").change(function(evento) {
                 evento.preventDefault();
-                let pesquisa = $("#pesquisa").val();
-                let estCivil = $("#ddlEstCivil").val();
+                let pessoa = $("#ddlPessoa").val();
 
                 let dados = {
-                    pesquisa: pesquisa,
-                    estCivil: estCivil
+                    pessoa: pessoa
                 }
 
-                $.post("buscaPessoa.php", dados, function(retorna) {
+                $.post("buscaExemplo.php", dados, function(retorna) {
                     $(".resultados").html(retorna);
                 });
             });
@@ -49,37 +47,29 @@ include_once("conexao.php");
     <form id="form-pesquisa" action="" method="post">
         <div class="row">
             <div class="form-group col-sm-12">
-                <label for="pesquisa" class="font-weight-bold col-form-label text-left">Informe o campo a ser pesquisado</label>
+                <label for="">Selecine uma pessoa</label>
                 <div class="col-sm-12">
-                    <input type="text" class="form-control" name="pesquisa" id="pesquisa">
-                </div>
-                <label for="pesquisa" class="font-weight-bold col-form-label text-left">Escolha um estado civil</label>
-                
-                <div class="col-sm-12">
-                    <select class="form-control" name="ddlEstCivil" id="ddlEstCivil">
-                        <option value="0"></option>
+                    <select class="form-control" name="ddlPessoa" id="ddlPessoa">
                         <?php
                         //incluir o arquivo de conexão
                         include_once('conexao.php');
                         //buscar dados do dropdown no BD (tbestcivil)
                         //criar o comando sql
-                        $sql = "SELECT idEstCivil, estadoCivil
-                        FROM tbestcivil
-                        ORDER BY estadoCivil";
+                        $sql = "SELECT *
+                        FROM tbPessoa
+                        ORDER BY nomePessoa";
 
                         //executar o comando sql
-                        $estadocivil = $conn->query($sql);
+                        $dadosPessoa = $conn->query($sql);
 
-                        while ($rowEstCivil = $estadocivil->fetch_assoc()) {
+                        while ($rowPessoa = $dadosPessoa->fetch_assoc()) {
                         ?>
-                            <option value="<?php echo $rowEstCivil["idEstCivil"]; ?>"><?php echo $rowEstCivil["estadoCivil"]; ?></option>
+                            <option value="<?php echo $rowPessoa["idPessoa"]; ?>"><?php echo $rowPessoa["nomePessoa"]; ?></option>
                         <?php
                         }
                         ?>
                     </select>
                 </div>
-                <br>
-                <input type="submit" class="btn btn-primary" name="enviar" value="Pesquisar">
             </div>
         </div>
     </form>
