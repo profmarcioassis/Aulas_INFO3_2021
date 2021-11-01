@@ -1,5 +1,4 @@
 <?php
-//inclui o arquivo de conexão
 include_once("conexao.php");
 
 $pesquisa = $_POST["pesquisa"];
