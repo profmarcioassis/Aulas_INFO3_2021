@@ -1,4 +1,5 @@
 <?php
+//inclui o arquivo de conexão
 include_once("conexao.php");
 
 $pesquisa = $_POST["pesquisa"];
@@ -8,7 +9,7 @@ if ($estCivil == 0) {
     $sql = "SELECT * 
     FROM tbpessoa
     where nomePessoa like '%$pesquisa%' 
-    or sobrenomePessoa like '%$pesquisa%' 
+    or sobrenomePessoa like '%$pesquisa%'
     order by nomePessoa";
 } else {
     $sql = "SELECT * 
@@ -52,6 +53,7 @@ if ($dadosPessoa->num_rows > 0) {
                 ?>
                 <td><?php echo $estCivil["estadoCivil"] ?> </td>
                 <td><?php echo $exibir["Sexo"] ?></td>
+                
                 <td><a href="editarPessoa.php?idPessoa=<?php echo $exibir["idPessoa"] ?>">Editar</a></td>
 
                 <td>
