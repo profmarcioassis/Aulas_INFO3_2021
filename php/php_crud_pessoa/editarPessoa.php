@@ -1,5 +1,6 @@
 <?php
-    include_once("conexao.php");
+    require_once("conexao.php");
+    session_start();
 
     if (isset($_POST["txtNome"])){
         $idPessoa = $_GET["idPessoa"];
@@ -51,6 +52,11 @@
 </head>
 
 <body style="margin: 20px;">
+<?php
+     if (isset($_SESSION["usuario"])) {
+         require_once("menu.php");
+         if ($_SESSION["tipo"] === "A") {
+     ?>
     <h2 class="text-center mb-1 mt-2">EDITAR DE PESSOA</h2>
 
     <?php
@@ -61,8 +67,6 @@
             $pessoa = $consulta->fetch_assoc(); 
         }
     ?>
-    
-
            
     <form action="editarPessoa.php?idPessoa=<?php echo $_GET['idPessoa']?>" method="post">
         <div class="form-group row">
@@ -124,6 +128,23 @@
         </div>
     </form>
 
+    <?php
+        } else {
+        ?>
+            <div class="alert alert-warning">
+                <p>Usuário não autorizado!</p>
+                <p>Entre em contato com o administrador do sistema.</p>
+            </div>
+
+        <?php 
+        } 
+        }else {
+        ?>
+        <div class="alert alert-warning">
+            <p>Usuário não autenticado!</p>
+            <a href="index.php">Se identifique aqui</a>
+        </div>
+    <?php } ?>
 
 </body>
 

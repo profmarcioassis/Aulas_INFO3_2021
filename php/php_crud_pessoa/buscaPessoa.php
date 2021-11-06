@@ -1,5 +1,6 @@
 <?php
-include_once("conexao.php");
+require_once("conexao.php");
+session_start();
 
 $pesquisa = $_POST["pesquisa"];
 $estCivil = $_POST["estCivil"];
@@ -27,14 +28,21 @@ if ($dadosPessoa->num_rows > 0) {
 ?>
     <table class="table table-bordered table-striped">
         <tr>
+
             <th>Id</th>
             <th>Nome</th>
             <th>Sobrenome</th>
             <th>Idade</th>
             <th>Estado Civil</th>
             <th>Sexo</th>
-            <th>Editar</th>
-            <th>Excluir</th>
+            <?php
+            if ($_SESSION["tipo"] === 'A') {
+            ?>
+                <th>Editar</th>
+                <th>Excluir</th>
+            <?php
+            }
+            ?>
         </tr>
         <?php
         while ($exibir = $dadosPessoa->fetch_assoc()) {
@@ -52,25 +60,31 @@ if ($dadosPessoa->num_rows > 0) {
                 ?>
                 <td><?php echo $estCivil["estadoCivil"] ?> </td>
                 <td><?php echo $exibir["Sexo"] ?></td>
-                
-                <td><a href="editarPessoa.php?idPessoa=<?php echo $exibir["idPessoa"] ?>">Editar</a></td>
 
-                <td>
-                    <a href="#" onclick="confirmarExclusao(
+                <?php
+                if ($_SESSION["tipo"] === 'A') {
+
+                ?>
+                    <td><a href="editarPessoa.php?idPessoa=<?php echo $exibir["idPessoa"] ?>">Editar</a></td>
+
+                    <td>
+                        <a href="#" onclick="confirmarExclusao(
                     '<?php echo $exibir["idPessoa"] ?>',
                     '<?php echo $exibir["nomePessoa"] ?>',
                     '<?php echo $exibir["sobrenomePessoa"] ?>')">
-                        Excluir
-                    </a>
-                </td>
+                            Excluir
+                        </a>
+                    </td>
+                <?php
+                }
+                ?>
             </tr>
         <?php
         }
         ?>
     </table>
 <?php
-}
-else{
-    echo "<h4>Nenhum registro retornado!</h4"; 
+} else {
+    echo "<h4>Nenhum registro retornado!</h4";
 }
 ?>
