@@ -21,14 +21,15 @@ session_start();//iniciando a session
 
     <script>
         $(document).ready(function() {
-            var pagina = 1; //página inicial
-            var qtd_result_pg = 10;
-
-            listar_registros(pagina, qtd_result_pg); //chama a função assim que carregar a página
+             //define as variáveis com a página atua
+            var pagina = 1; // define a página atual
+            var qtd_result_pg = 10; //define a quantidade de páginas por página
             
+            listar_registros(pagina, qtd_result_pg); //chama a função listar_registros
+
             $("#form-pesquisa").submit(function(evento) {
                 evento.preventDefault();
-                listar_registros(pagina, qtd_result_pg); //chama a função ao clicar no botão de Pesquisar
+                listar_registros(pagina, qtd_result_pg); //chama a função listar_registros
             });
         });
 
@@ -44,11 +45,10 @@ session_start();//iniciando a session
             }
             //alert(dados.pesquisa);
 
-            $.post('buscaPessoa.php', dados, function(retorna) { //envia os dados via post
+            $.post('buscaPessoa_cp.php', dados, function(retorna) { //envia os dados via post
                 $(".resultados").html(retorna); //define onde o resultado será exibido
             });
         }
-
 
         function confirmarExclusao(id, nome, sobrenome) {
             if (window.confirm("Deseja realmente excluir o registro: \n" + id + " - " + nome + " " + sobrenome)) {

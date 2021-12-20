@@ -42,9 +42,11 @@ session_start();
                 <script>
                     document.getElementById("txtUser").focus();
                 </script>
+
                 <div id="erro" class="text-center alert alert-warning">
                     Usuário ou senha inválidos. Tente novamente.
                 </div>
+
         <?php
                 unset($_SESSION["erro"]);
             }

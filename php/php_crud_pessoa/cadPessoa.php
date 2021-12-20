@@ -86,7 +86,7 @@ session_start();
         } else {
         ?>
             <div class="alert alert-warning">
-                <p>Usuário não autorizado!</p>
+                <p><b><?php echo $_SESSION["nome"];?></b>, você não é autorizado a acessar essa página!</p>
                 <p>Entre em contato com o administrador do sistema.</p>
             </div>
 
